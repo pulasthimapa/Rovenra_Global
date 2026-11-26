@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rovenra Global | Strategy, Social & Content Studio</title>
+<meta name="description" content="Rovenra Global plans, films and runs social media and personal brands for growing businesses, with a specialism in UK construction. Makers of SimplyMargin.">
+<meta property="og:title" content="Rovenra Global | Brands that win work">
+<meta property="og:image" content="assets/logo.png">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+html, body { background: #000; color: #f4efe8; margin: 0; }
+:root {
+  --gold: #d5ab72; --gold-2: #f0d2a3; --gold-dim: rgba(213,171,114,.16);
+  --panel: #0a0908; --line: rgba(244,239,232,.1); --muted: rgba(244,239,232,.6);
+  --serif: "Playfair Display", Georgia, serif; --sans: "Montserrat", system-ui, sans-serif;
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body { font-family: var(--sans); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+/* film grain keeps flat black from looking digital */
+body::after { content: ""; position: fixed; inset: -50%; z-index: 90; pointer-events: none; opacity: .05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 4px; }
+.wrap { width: min(1280px, 100% - 64px); margin-inline: auto; }
+.eyebrow { display: inline-flex; align-items: center; gap: 14px; font-size: 11.5px; font-weight: 600; letter-spacing: .34em; text-transform: uppercase; color: var(--gold); }
+.eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--gold); }
+h1, h2, h3 { margin: 0; font-weight: 400; }
+h2 { font-family: var(--serif); font-size: clamp(40px, 5.6vw, 84px); line-height: 1.02; letter-spacing: -.025em; }
+em.g { font-family: var(--serif); font-style: italic; color: var(--gold); }
+p { margin: 0; }
+section { position: relative; }
+.pad { padding: clamp(110px, 13vw, 190px) 0; }
+
+.btn { display: inline-flex; align-items: center; gap: 12px; font: 600 13px var(--sans); letter-spacing: .08em; text-transform: uppercase; text-decoration: none; padding: 17px 28px; border-radius: 99px; border: 0; cursor: pointer; transition: transform .5s var(--ease), background .3s, color .3s, border-color .3s; }
+.btn svg { width: 14px; height: 14px; transition: transform .5s var(--ease); }
+.btn:hover svg { transform: translateX(5px); }
+.btn-gold { background: var(--gold); color: #0a0806; }
+.btn-gold:hover { background: var(--gold-2); transform: translateY(-2px); }
+.btn-line { border: 1px solid rgba(244,239,232,.25); color: #f4efe8; background: transparent; }
+.btn-line:hover { border-color: var(--gold); color: var(--gold); }
+
+/* reveal */
+.rv { opacity: 0; transform: translateY(30px); transition: opacity 1.1s var(--ease), transform 1.1s var(--ease); }
+.rv.in { opacity: 1; transform: none; }
+
+/* NAV */
+header { position: fixed; inset: 0 0 auto; z-index: 60; transition: background .5s, border-color .5s, transform .5s var(--ease); border-bottom: 1px solid transparent; }
+header.solid { background: rgba(0,0,0,.78); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-color: var(--line); }
+nav { height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.mark { position: relative; width: 44px; aspect-ratio: 1111/736; overflow: hidden; }
+.mark img { position: absolute; top: 0; left: 0; width: 100%; }
+.brand .wm { display: flex; flex-direction: column; line-height: 1; }
+.brand b { font-weight: 600; font-size: 15px; letter-spacing: .44em; color: var(--gold); }
+.brand small { font-weight: 700; font-size: 8px; letter-spacing: .66em; margin-top: 6px; }
+.links { display: flex; gap: 40px; list-style: none; margin: 0; padding: 0; font-size: 13px; font-weight: 500; letter-spacing: .05em; }
+.links a { text-decoration: none; color: var(--muted); transition: color .3s; position: relative; }
+.links a::after { content: ""; position: absolute; left: 0; bottom: -6px; height: 1px; width: 100%; background: var(--gold); transform: scaleX(0); transform-origin: right; transition: transform .5s var(--ease); }
+.links a:hover { color: #fff; }
+.links a:hover::after { transform: scaleX(1); transform-origin: left; }
+nav .btn { padding: 13px 22px; font-size: 12px; }
+
+/* HERO */
+#hero { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; overflow: hidden; padding-top: 84px; }
+#hero::before { content: ""; position: absolute; right: -10%; top: 10%; width: 70vw; height: 70vw; max-width: 1000px; max-height: 1000px; background: radial-gradient(circle, rgba(213,171,114,.14), transparent 62%); pointer-events: none; }
+.hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 40px; position: relative; }
+#hero h1 { font-family: var(--serif); font-size: clamp(56px, 9.2vw, 148px); line-height: .94; letter-spacing: -.035em; margin: 30px 0 34px; }
+#hero h1 .ln { display: block; overflow: hidden; padding-bottom: .06em; }
+#hero h1 .ln > span { display: inline-block; transform: translateY(105%); transition: transform 1.3s var(--ease); }
+.ready #hero h1 .ln > span { transform: none; }
+#hero h1 .ln:nth-child(2) > span { transition-delay: .12s; }
+.lede { font-size: clamp(16px, 1.35vw, 19px); color: var(--muted); max-width: 48ch; }
+.lede b { color: #f4efe8; font-weight: 500; }
+.ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 44px; }
+.fade { opacity: 0; transform: translateY(18px); transition: opacity 1.1s var(--ease), transform 1.1s var(--ease); }
+.ready .fade { opacity: 1; transform: none; }
+
+/* animated monogram, assembled like the end-tag film */
+.mono { position: relative; width: 100%; max-width: 460px; justify-self: end; aspect-ratio: 1111/736; }
+.mono .layer { position: absolute; inset: 0; overflow: hidden; }
+.mono img { position: absolute; top: 0; left: 0; width: 100%; }
+.mono .t { transform: translateX(-14%); opacity: 0; transition: transform 1.6s var(--ease) .5s, opacity 1.2s ease .5s; }
+.mono .r { transform: translateX(14%); opacity: 0; transition: transform 1.6s var(--ease) .5s, opacity 1.2s ease .5s; }
+.ready .mono .t, .ready .mono .r { transform: none; opacity: 1; }
+.mono .seam { position: absolute; left: 33.4%; top: -30%; width: 2px; height: 0; background: linear-gradient(transparent, var(--gold) 30%, var(--gold-2)); box-shadow: 0 0 18px rgba(213,171,114,.8); transition: height 1s var(--ease), opacity .8s ease 1.6s; }
+.ready .mono .seam { height: 130%; opacity: 0; }
+.mono .sheen { position: absolute; inset: 0; -webkit-mask: url(assets/rg.png) top left / 100% auto no-repeat, url(assets/t.png) top left / 100% auto no-repeat; mask: url(assets/rg.png) top left / 100% auto no-repeat, url(assets/t.png) top left / 100% auto no-repeat; overflow: hidden; }
+.mono .sheen i { position: absolute; top: 0; bottom: 0; left: -40%; width: 30%; background: linear-gradient(100deg, transparent, rgba(255,244,224,.85), transparent); animation: sheen 7s ease-in-out 2.4s infinite; }
+@keyframes sheen { 0% { left: -40%; } 22%, 100% { left: 120%; } }
+.mono figcaption { position: absolute; right: 0; bottom: -54px; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); }
+
+.hero-foot { position: relative; margin-top: clamp(56px, 8vh, 96px); border-top: 1px solid var(--line); padding: 26px 0 34px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+.hero-foot .clients { display: flex; align-items: center; gap: 36px; flex-wrap: wrap; }
+.hero-foot .clients span { font-size: 11px; letter-spacing: .3em; text-transform: uppercase; }
+.client-name { font-family: var(--sans); font-weight: 700; letter-spacing: .28em; font-size: 15px; color: #f4efe8; text-transform: uppercase; }
+.client-name.sm { font-family: var(--serif); font-weight: 500; letter-spacing: 0; text-transform: none; font-size: 20px; }
+.client-name.sm i { color: var(--gold); font-style: normal; }
+
+/* MARQUEE */
+.marquee { border-block: 1px solid var(--line); overflow: hidden; padding: 30px 0; }
+.track { display: flex; width: max-content; animation: mq 38s linear infinite; }
+.track span { font-family: var(--serif); font-size: clamp(36px, 5vw, 72px); line-height: 1; white-space: nowrap; padding-right: .6em; color: transparent; -webkit-text-stroke: 1px rgba(244,239,232,.35); }
+.track span.f { color: var(--gold); -webkit-text-stroke: 0; font-style: italic; }
+@keyframes mq { to { transform: translateX(-50%); } }
+
+/* SERVICES */
+.head { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap; margin-bottom: 80px; }
+.head h2 { margin-top: 22px; }
+.head p { color: var(--muted); max-width: 42ch; }
+.svc { display: grid; grid-template-columns: 90px 1.1fr 1fr; gap: 40px; padding: 56px 0; border-top: 1px solid var(--line); position: relative; }
+.svc:last-child { border-bottom: 1px solid var(--line); }
+.svc::before { content: ""; position: absolute; top: -1px; left: 0; height: 1px; width: 100%; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 1s var(--ease); }
+.svc:hover::before { transform: scaleX(1); }
+.svc .n { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--gold); }
+.svc h3 { font-family: var(--serif); font-size: clamp(32px, 3.6vw, 52px); line-height: 1.04; letter-spacing: -.02em; transition: transform .7s var(--ease), color .4s; }
+.svc:hover h3 { transform: translateX(10px); color: var(--gold-2); }
+.svc .desc { color: var(--muted); margin-bottom: 22px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.tags li { font-size: 12.5px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 99px; color: rgba(244,239,232,.8); }
+
+/* FILM */
+#film { background: var(--panel); border-block: 1px solid var(--line); }
+.film-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(40px, 6vw, 100px); align-items: center; }
+.film-grid p.b { color: var(--muted); margin-top: 26px; max-width: 42ch; }
+.frame { position: relative; border-radius: 18px; overflow: hidden; border: 1px solid rgba(213,171,114,.3); box-shadow: 0 60px 140px -50px rgba(213,171,114,.35); background: #000; }
+.frame video { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+.frame .cap { position: absolute; left: 18px; bottom: 16px; display: flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: rgba(244,239,232,.75); }
+.frame .cap i { width: 7px; height: 7px; border-radius: 50%; background: #e0574a; box-shadow: 0 0 10px #e0574a; animation: blink 1.6s infinite; }
+@keyframes blink { 50% { opacity: .3; } }
+.replay { position: absolute; right: 14px; bottom: 12px; background: rgba(0,0,0,.5); border: 1px solid var(--line); color: #f4efe8; border-radius: 99px; padding: 8px 14px; font: 600 11px var(--sans); letter-spacing: .2em; text-transform: uppercase; cursor: pointer; }
+.replay:hover { border-color: var(--gold); color: var(--gold); }
+
+/* WORK */
+.work { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.card { position: relative; border: 1px solid var(--line); border-radius: 22px; padding: clamp(28px, 3.4vw, 48px); background: linear-gradient(160deg, #0d0b09, #050505); overflow: hidden; display: flex; flex-direction: column; min-height: 560px; transition: border-color .5s; }
+.card:hover { border-color: rgba(213,171,114,.4); }
+.card .kind { font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); }
+.card h3 { font-family: var(--serif); font-size: clamp(34px, 3.4vw, 50px); line-height: 1.04; letter-spacing: -.02em; margin: 18px 0 16px; }
+.card p { color: var(--muted); max-width: 44ch; }
+.card .meta { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; padding-top: 32px; }
+.jww-art { position: absolute; right: -6%; bottom: -8%; font-family: var(--sans); font-weight: 700; font-size: clamp(120px, 15vw, 230px); letter-spacing: -.02em; line-height: .8; color: transparent; -webkit-text-stroke: 1px rgba(213,171,114,.18); pointer-events: none; transition: transform 1.2s var(--ease); }
+.card:hover .jww-art { transform: translate(-12px, -10px); }
+.jww-lines { position: absolute; inset: 0; background: repeating-linear-gradient(90deg, rgba(244,239,232,.025) 0 1px, transparent 1px 64px), repeating-linear-gradient(0deg, rgba(244,239,232,.025) 0 1px, transparent 1px 64px); mask-image: linear-gradient(to top, #000, transparent 70%); -webkit-mask-image: linear-gradient(to top, #000, transparent 70%); pointer-events: none; }
+.card > * { position: relative; }
+.card .jww-art, .card .jww-lines { position: absolute; }
+
+.est { margin-top: 28px; border-top: 1px solid var(--line); padding-top: 24px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font: 500 12.5px var(--sans); color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 99px; padding: 8px 14px; cursor: pointer; transition: all .3s; }
+.chip:hover { color: #fff; border-color: rgba(244,239,232,.3); }
+.chip[aria-pressed="true"] { background: var(--gold); color: #0a0806; border-color: var(--gold); }
+.range { font-family: var(--serif); font-size: clamp(32px, 3.2vw, 46px); letter-spacing: -.02em; margin: 22px 0 4px; }
+.range .d { color: var(--gold); margin: 0 .18em; }
+.note { font-size: 12.5px; color: var(--muted); }
+.bar { position: relative; height: 6px; border-radius: 9px; background: rgba(244,239,232,.07); margin-top: 18px; }
+.bar i { position: absolute; top: 0; bottom: 0; border-radius: 9px; background: linear-gradient(90deg, #a9844f, var(--gold), var(--gold-2)); transition: left .9s var(--ease), width .9s var(--ease); }
+.card a.more { margin-top: 26px; align-self: flex-start; }
+
+/* AUDIENCES */
+.aud { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); }
+.aud article { padding: 44px 36px 8px 0; }
+.aud article + article { padding-left: 36px; border-left: 1px solid var(--line); }
+.aud svg { width: 34px; height: 34px; color: var(--gold); }
+.aud h3 { font-family: var(--serif); font-size: 30px; margin: 26px 0 12px; }
+.aud p { color: var(--muted); font-size: 15px; }
+
+/* PROCESS */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; position: relative; padding-top: 52px; }
+.steps .rail { position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--line); }
+.steps .rail i { position: absolute; inset: 0; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 2s var(--ease); }
+.steps.in .rail i { transform: scaleX(1); }
+.step { position: relative; }
+.step::before { content: ""; position: absolute; top: -57px; left: 0; width: 9px; height: 9px; border-radius: 50%; background: #000; border: 1px solid var(--gold); }
+.step .k { font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); }
+.step h3 { font-family: var(--serif); font-size: 32px; margin: 14px 0 12px; }
+.step p { color: var(--muted); font-size: 15px; }
+
+/* CONTACT */
+#contact { background: var(--panel); border-top: 1px solid var(--line); overflow: hidden; }
+#contact::before { content: ""; position: absolute; left: -15%; bottom: -30%; width: 900px; height: 900px; background: radial-gradient(circle, rgba(213,171,114,.13), transparent 60%); pointer-events: none; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(48px, 7vw, 120px); position: relative; }
+.tagline { font-family: var(--serif); font-size: clamp(52px, 7vw, 108px); line-height: .98; letter-spacing: -.03em; margin: 26px 0 30px; }
+.tagline span { display: block; }
+.direct { display: grid; gap: 12px; margin-top: 40px; }
+.direct a { display: flex; align-items: center; gap: 16px; padding: 18px 22px; border: 1px solid var(--line); border-radius: 16px; text-decoration: none; transition: border-color .4s, background .4s; }
+.direct a:hover { border-color: var(--gold); background: var(--gold-dim); }
+.direct svg { width: 22px; height: 22px; color: var(--gold); flex: none; }
+.direct small { display: block; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); }
+.direct b { font-weight: 500; font-size: 16px; }
+form { background: #050505; border: 1px solid rgba(213,171,114,.25); border-radius: 22px; padding: clamp(26px, 3vw, 44px); display: grid; gap: 18px; align-self: start; }
+form h3 { font-family: var(--serif); font-size: 30px; }
+form .sub { color: var(--muted); font-size: 14px; margin-top: -8px; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+label { display: grid; gap: 8px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+input, select, textarea { font: 400 15px var(--sans); color: #f4efe8; background: transparent; border: 0; border-bottom: 1px solid rgba(244,239,232,.2); padding: 10px 0; border-radius: 0; transition: border-color .3s; width: 100%; }
+select { cursor: pointer; }
+select option { background: #0a0908; }
+textarea { resize: vertical; min-height: 90px; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--gold); }
+form .btn { justify-self: start; margin-top: 8px; }
+.form-note { font-size: 12.5px; color: var(--muted); }
+
+footer { border-top: 1px solid var(--line); padding: 44px 0; font-size: 13px; color: rgba(244,239,232,.45); }
+footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+footer a { color: rgba(244,239,232,.75); text-decoration: none; }
+footer a:hover { color: var(--gold); }
+footer nav { height: auto; gap: 26px; }
+
+@media (max-width: 1020px) {
+  .links { display: none; }
+  .hero-grid, .film-grid, .contact-grid { grid-template-columns: 1fr; }
+  .mono { justify-self: start; max-width: 300px; order: -1; }
+  .mono figcaption { display: none; }
+  .svc { grid-template-columns: 60px 1fr; }
+  .svc > div:last-child { grid-column: 2; }
+  .work { grid-template-columns: 1fr; }
+  .aud { grid-template-columns: 1fr; }
+  .aud article + article { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .aud article { padding-bottom: 36px; }
+  .steps { grid-template-columns: 1fr 1fr; row-gap: 60px; }
+}
+@media (max-width: 600px) {
+  .wrap { width: calc(100% - 32px); }
+  nav .btn { padding: 11px 16px; font-size: 11px; }
+  .brand .wm { display: none; }
+  .mono { max-width: 190px; }
+  .svc { grid-template-columns: 1fr; gap: 18px; padding: 44px 0; }
+  .svc > div:last-child { grid-column: auto; }
+  .steps { grid-template-columns: 1fr; padding-top: 0; padding-left: 28px; }
+  .steps .rail { top: 0; bottom: 0; left: 4px; right: auto; width: 1px; height: auto; }
+  .steps .rail i { transform: scaleY(0); transform-origin: top; }
+  .steps.in .rail i { transform: scaleY(1); }
+  .step::before { top: 10px; left: -28px; }
+  .row { grid-template-columns: 1fr; }
+  .card { min-height: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <nav class="wrap" aria-label="Main">
+    <a class="brand" href="#hero" aria-label="Rovenra Global, home">
+      <span class="mark" aria-hidden="true"><img src="assets/t.png" alt=""><img src="assets/rg.png" alt=""></span>
+      <span class="wm"><b>ROVENRA</b><small>GLOBAL</small></span>
+    </a>
+    <ul class="links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn btn-gold" href="#contact">Book a call</a>
+  </nav>
+</header>
+
+<main>
+<section id="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow fade">Strategy · Social · Content</p>
+      <h1><span class="ln"><span>Brands that</span></span><span class="ln"><span><em class="g">win work.</em></span></span></h1>
+      <p class="lede fade" style="transition-delay:.35s">Rovenra Global plans, films and runs the social media and personal brands of growing businesses, <b>with a specialism in UK construction.</b></p>
+      <div class="ctas fade" style="transition-delay:.5s">
+        <a class="btn btn-gold" href="#contact">Book a call <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        <a class="btn btn-line" href="#services">What we do</a>
+      </div>
+    </div>
+    <figure class="mono" aria-hidden="true" style="margin:0">
+      <div class="layer t"><img src="assets/t.png" alt=""></div>
+      <div class="layer r"><img src="assets/rg.png" alt=""></div>
+      <div class="sheen"><i></i></div>
+      <span class="seam"></span>
+      <figcaption>Create · Inspire · Impact</figcaption>
+    </figure>
+  </div>
+  <div class="wrap hero-foot fade" style="transition-delay:.8s">
+    <div class="clients">
+      <span>Trusted by</span>
+      <span class="client-name">JWW Construction</span>
+      <span class="client-name sm">Simply<i>Margin</i></span>
+    </div>
+    <span>UK &amp; Sri Lanka · Working worldwide</span>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Social media</span><span class="f">management</span><span>Video</span><span class="f">&amp; content</span><span>Personal</span><span class="f">branding</span><span>Strategy</span><span class="f">that ships</span>
+    <span>Social media</span><span class="f">management</span><span>Video</span><span class="f">&amp; content</span><span>Personal</span><span class="f">branding</span><span>Strategy</span><span class="f">that ships</span>
+  </div>
+</div>
+
+<section id="services" class="pad">
+  <div class="wrap">
+    <div class="head rv">
+      <div><p class="eyebrow">What we do</p><h2>Three things, <em class="g">done properly.</em></h2></div>
+      <p>We don't do everything. We plan the strategy, make the content and run the channels, so your brand turns up every week looking like it means business.</p>
+    </div>
+    <article class="svc rv">
+      <span class="n">01</span>
+      <h3>Social media management</h3>
+      <div><p class="desc">We run your channels end to end, so you can stay on site and still be seen.</p>
+        <ul class="tags"><li>Content calendar</li><li>Posting &amp; scheduling</li><li>Instagram · Facebook · TikTok · LinkedIn</li><li>Monthly reporting</li></ul></div>
+    </article>
+    <article class="svc rv">
+      <span class="n">02</span>
+      <h3>Video &amp; content production</h3>
+      <div><p class="desc">Reels, brand films and motion graphics that show your work at its best and stop the scroll.</p>
+        <ul class="tags"><li>Project &amp; portfolio reels</li><li>Short-form video</li><li>Brand idents &amp; motion</li><li>Photo editing</li></ul></div>
+    </article>
+    <article class="svc rv">
+      <span class="n">03</span>
+      <h3>Strategy &amp; personal branding</h3>
+      <div><p class="desc">A clear position and a plan to own it, for the business and for the people behind it.</p>
+        <ul class="tags"><li>Positioning &amp; messaging</li><li>Founder &amp; personal brands</li><li>Content strategy</li><li>Growth planning</li></ul></div>
+    </article>
+  </div>
+</section>
+
+<section id="film" class="pad">
+  <div class="wrap film-grid">
+    <div class="rv">
+      <p class="eyebrow">Made in-house</p>
+      <h2 style="margin-top:22px">Motion is part of <em class="g">the brand.</em></h2>
+      <p class="b">Our own ident, made by our team. We bring the same frame-by-frame care to every client reel, ident and launch film.</p>
+    </div>
+    <div class="frame rv" style="transition-delay:.15s">
+      <video id="film-vid" muted playsinline preload="metadata" poster="assets/logo.png" aria-label="Rovenra Global brand ident film">
+        <source src="assets/intro.mp4" type="video/mp4">
+      </video>
+      <span class="cap"><i></i>Rovenra ident · 2026</span>
+      <button class="replay" type="button" id="replay">Replay</button>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="pad">
+  <div class="wrap">
+    <div class="head rv">
+      <div><p class="eyebrow">Selected work</p><h2>Client work &amp; <em class="g">our own.</em></h2></div>
+      <p>We run social for construction firms, and we built software for them too. It's how we know the trade.</p>
+    </div>
+    <div class="work">
+      <article class="card rv">
+        <div class="jww-lines" aria-hidden="true"></div>
+        <span class="jww-art" aria-hidden="true">JWW</span>
+        <span class="kind">Client · Kent, UK</span>
+        <h3>JWW Construction</h3>
+        <p>We manage social media for JWW Construction, a Kent builder specialising in extensions, loft conversions and renovations.</p>
+        <div class="meta"><ul class="tags"><li>Social media management</li><li>Content production</li><li>Construction</li></ul></div>
+      </article>
+      <article class="card rv" style="transition-delay:.12s">
+        <span class="kind">Our product · SaaS</span>
+        <h3>Simply<em class="g">Margin</em></h3>
+        <p>Quoting, job packs and job costing for UK builders, plus free price guides for homeowners. Built on 313 sourced UK rates across 30 kinds of job.</p>
+        <div class="est" aria-labelledby="est-t">
+          <p class="note" id="est-t">Try it: typical UK price, inc. VAT</p>
+          <div class="chips" role="group" aria-label="Choose a job" style="margin-top:14px">
+            <button class="chip" type="button" data-lo="6700" data-hi="7500" aria-pressed="true">Bathroom</button>
+            <button class="chip" type="button" data-lo="9950" data-hi="17500" aria-pressed="false">Kitchen</button>
+            <button class="chip" type="button" data-lo="58000" data-hi="69000" aria-pressed="false">Loft conversion</button>
+            <button class="chip" type="button" data-lo="52000" data-hi="65500" aria-pressed="false">Extension</button>
+          </div>
+          <div class="range" aria-live="polite"><span id="lo">£6,700</span><span class="d">–</span><span id="hi">£7,500</span></div>
+          <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+        </div>
+        <a class="btn btn-line more" href="https://www.simplymargin.com" target="_blank" rel="noopener">Visit SimplyMargin <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="who" class="pad" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv"><div><p class="eyebrow">Who we work with</p><h2>Built for people <em class="g">who build.</em></h2></div></div>
+    <div class="aud">
+      <article class="rv">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 27h24M7 27V14l9-7 9 7v13M13 27v-7h6v7"/></svg>
+        <h3>Construction &amp; trades</h3>
+        <p>Builders, contractors and trades who want their next enquiry to come from their own channels, not just referrals.</p>
+      </article>
+      <article class="rv" style="transition-delay:.1s">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="16" cy="11" r="5"/><path d="M6 27c1.5-5.5 5.5-8 10-8s8.5 2.5 10 8"/></svg>
+        <h3>Founders &amp; experts</h3>
+        <p>Owners and specialists who want to be known for what they do, on LinkedIn, Instagram and beyond.</p>
+      </article>
+      <article class="rv" style="transition-delay:.2s">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 26l8-8 5 5 11-12"/><path d="M21 11h7v7"/></svg>
+        <h3>Growing businesses</h3>
+        <p>SMEs ready to look as good online as they are in real life, with a plan behind every post.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="process" class="pad" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv"><div><p class="eyebrow">How we work</p><h2>Simple, <em class="g">every month.</em></h2></div><p>No jargon and no mystery. You always know what's going out, and why.</p></div>
+    <div class="steps rv" id="steps">
+      <div class="rail"><i></i></div>
+      <div class="step"><p class="k">01</p><h3>Discover</h3><p>A call to learn your business, your customers and what work you want more of.</p></div>
+      <div class="step"><p class="k">02</p><h3>Plan</h3><p>A clear position, content pillars and a calendar you sign off before anything goes live.</p></div>
+      <div class="step"><p class="k">03</p><h3>Create</h3><p>We film, design, write and post, with your projects and your people at the centre.</p></div>
+      <div class="step"><p class="k">04</p><h3>Grow</h3><p>We report what's working each month and put more behind it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="pad">
+  <div class="wrap contact-grid">
+    <div class="rv">
+      <p class="eyebrow">Your digital partner</p>
+      <p class="tagline"><span>Create.</span><span>Inspire.</span><span><em class="g">Impact.</em></span></p>
+      <p style="color:var(--muted);max-width:42ch">Tell us about your business and what you want to grow. We'll come back with honest first thoughts and a time to talk.</p>
+      <div class="direct">
+        <a href="https://wa.me/447867335711?text=Hi%20Rovenra%2C%20I%27d%20like%20to%20talk%20about%20" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.3Z"/></svg>
+          <span><small>WhatsApp</small><b>+44 7867 335711</b></span>
+        </a>
+        <a href="mailto:hello@rovenra.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span><small>Email</small><b>hello@rovenra.com</b></span>
+        </a>
+      </div>
+    </div>
+
+    <form id="enquiry" class="rv" style="transition-delay:.12s" novalidate>
+      <h3>Book a call</h3>
+      <p class="sub">Takes a minute. Sends from your own email app.</p>
+      <div class="row">
+        <label>Name<input name="name" autocomplete="name" required></label>
+        <label>Company<input name="company" autocomplete="organization"></label>
+      </div>
+      <label>Email<input name="email" type="email" autocomplete="email" required></label>
+      <label>What do you need?
+        <select name="service">
+          <option>Social media management</option>
+          <option>Video &amp; content production</option>
+          <option>Strategy &amp; personal branding</option>
+          <option>Not sure yet</option>
+        </select>
+      </label>
+      <label>Message<textarea name="message" placeholder="A few lines about your business and goals"></textarea></label>
+      <button class="btn btn-gold" type="submit">Send enquiry <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button>
+      <p class="form-note" id="form-msg" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Rovenra Global · 326/B/2 Charleston Garden, Horagolla, Ganemulla, Sri Lanka</span>
+    <nav aria-label="Footer"><a href="#services">Services</a><a href="#work">Work</a><a href="https://www.simplymargin.com" target="_blank" rel="noopener">SimplyMargin</a><a href="#hero">Top</a></nav>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.add('ready')));
+
+  const header = document.getElementById('top');
+  const onScroll = () => header.classList.toggle('solid', scrollY > 30);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  // Ident film: plays once each time it scrolls into view
+  const vid = document.getElementById('film-vid');
+  const play = () => { vid.currentTime = 0; vid.play().catch(() => {}); };
+  new IntersectionObserver(([e]) => { if (e.isIntersecting && !reduce) play(); }, { threshold: .6 }).observe(vid);
+  document.getElementById('replay').onclick = play;
+
+  // SimplyMargin price guide (figures from simplymargin.com)
+  const fmt = n => '£' + (Math.round(n / 50) * 50).toLocaleString('en-GB');
+  const lo = document.getElementById('lo'), hi = document.getElementById('hi'), bar = document.getElementById('bar');
+  const MAX = 70000; let cur = [6700, 7500];
+  function show(a, b) {
+    bar.style.left = (a / MAX * 100) + '%';
+    bar.style.width = Math.max(1.5, (b - a) / MAX * 100) + '%';
+    const [fa, fb] = cur, s = performance.now();
+    const step = now => {
+      const k = reduce ? 1 : Math.min(1, (now - s) / 900), e = 1 - Math.pow(1 - k, 3);
+      lo.textContent = fmt(fa + (a - fa) * e); hi.textContent = fmt(fb + (b - fb) * e);
+      if (k < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step); cur = [a, b];
+  }
+  document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
+    document.querySelectorAll('.chip').forEach(o => o.setAttribute('aria-pressed', o === c));
+    show(+c.dataset.lo, +c.dataset.hi);
+  }));
+  show(6700, 7500);
+
+  // Enquiry form: no backend, so it opens a pre-filled email
+  // shortcut: mailto depends on a mail app; upgrade to Netlify Forms when hosted on Netlify
+  const form = document.getElementById('enquiry'), msg = document.getElementById('form-msg');
+  form.addEventListener('submit', ev => {
+    ev.preventDefault();
+    const d = Object.fromEntries(new FormData(form));
+    if (!d.name.trim() || !/^\S+@\S+\.\S+$/.test(d.email)) {
+      msg.textContent = 'Please add your name and a valid email.';
+      (d.name.trim() ? form.email : form.name).focus();
+      return;
+    }
+    const body = `Name: ${d.name}\nCompany: ${d.company}\nEmail: ${d.email}\nService: ${d.service}\n\n${d.message}`;
+    location.href = `mailto:hello@rovenra.com?subject=${encodeURIComponent('Enquiry: ' + d.service)}&body=${encodeURIComponent(body)}`;
+    msg.textContent = 'Opening your email app. If nothing happens, email hello@rovenra.com or message us on WhatsApp.';
+  });
+})();
+</script>
+</body>
+</html>
